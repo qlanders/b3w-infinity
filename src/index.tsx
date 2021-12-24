@@ -52,10 +52,15 @@ const Infinity = ({
   }, [element]);
 
   return (
-      <div className={className}>
-        {children}
-        {hasMore && <div ref={setElement}>{loaderComp}</div>}
+    <div className={className}>
+      {children}
+      <div
+        ref={setElement}
+        style={{opacity: hasMore ? '1' : '0'}}
+      >
+        {loaderComp}
       </div>
+    </div>
   );
 };
 
