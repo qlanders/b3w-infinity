@@ -2,7 +2,7 @@ import React, {
   useEffect, useRef, useState, ReactNode,
 } from 'react';
 
-export interface IInfiniti {
+export interface IInfinity {
   className?: string;
   fetchMore: () => void;
   hasMore: boolean;
@@ -10,13 +10,13 @@ export interface IInfiniti {
   children?: ReactNode;
 }
 
-const Infiniti = ({
+const Infinity = ({
   className,
   children,
   fetchMore,
   hasMore,
   loaderComp,
-}: IInfiniti) => {
+}: IInfinity) => {
   const [element, setElement] = useState<HTMLDivElement | null>(null);
 
   const loader = useRef(fetchMore);
@@ -59,8 +59,8 @@ const Infiniti = ({
   );
 };
 
-Infiniti.defaultProps = {
+Infinity.defaultProps = {
   className: '',
 };
 
-export default Infiniti;
+export default Infinity;

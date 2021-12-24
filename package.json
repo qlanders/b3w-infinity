@@ -70,10 +70,10 @@
   },
   "repository": {
     "type": "git",
-    "url": "git+https://github.com/qlanders/b3w-infiniti.git"
+    "url": "git+https://github.com/qlanders/b3w-infinity.git"
   },
   "bugs": {
-    "url": "https://github.com/qlanders/b3w-infiniti/issues"
+    "url": "https://github.com/qlanders/b3w-infinity/issues"
   },
-  "homepage": "https://github.com/qlanders/b3w-infiniti#readme"
+  "homepage": "https://github.com/qlanders/b3w-infinity#readme"
 }

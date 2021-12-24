@@ -2,12 +2,12 @@
 
 ## Install
 
-    $ yarn add @b3w/infiniti
+    $ yarn add @b3w/infinity
 
 ## Example
 
 ```js
-import Infinity from '@b3w/infiniti';
+import Infinity from '@b3w/infinity';
 
 const App = () => {
     const [hasMore, setHasMore] = useState(true);
@@ -15,7 +15,7 @@ const App = () => {
 
     return (
         <div>
-            <Infiniti
+            <Infinity
                 fetchMore={fetchMore}
                 hasMore={hasMore}
                 loaderComp={<div>Loading...</div>}
@@ -25,7 +25,7 @@ const App = () => {
                         {i.text}
                     </div> 
                 ))}
-            </Infiniti>
+            </Infinity>
         </div>
     );
 }
