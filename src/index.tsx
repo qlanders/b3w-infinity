@@ -56,7 +56,7 @@ const Infinity = ({
       {children}
       <div
         ref={setElement}
-        style={{opacity: hasMore ? '1' : '0'}}
+        style={{opacity: hasMore ? 1 : 0}}
       >
         {loaderComp}
       </div>
