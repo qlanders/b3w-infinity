@@ -1,5 +1,9 @@
-import React, {
-  useEffect, useRef, useState, ReactNode,
+import {
+  useEffect,
+  useRef,
+  useState,
+  ReactNode,
+  createElement,
 } from 'react';
 
 export interface IInfinity {
@@ -19,10 +23,9 @@ const Infinity = ({
   loaderComp,
   wrapperElement = 'div',
 }: IInfinity) => {
-  const Wrapper = wrapperElement;
+  const loader = useRef(fetchMore);
   const [element, setElement] = useState<HTMLDivElement | null>(null);
 
-  const loader = useRef(fetchMore);
   useEffect(() => {
     loader.current = fetchMore;
   }, [fetchMore]);
@@ -54,16 +57,15 @@ const Infinity = ({
     };
   }, [element]);
 
-  return (
-    <Wrapper className={className}>
-      {children}
-      <div
-        ref={setElement}
-        style={{opacity: hasMore ? 1 : 0}}
-      >
-        {loaderComp}
-      </div>
-    </Wrapper>
+  return createElement(
+    wrapperElement,
+    { className },
+    children,
+    createElement(
+      wrapperElement === 'div' ? 'div' : 'li',
+      { ref: setElement, style: { opacity: hasMore ? 1 : 0 } },
+      loaderComp
+    ),
   );
 };
 
