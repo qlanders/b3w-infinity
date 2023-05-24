@@ -12,7 +12,7 @@ export interface IInfinity {
   fetchMore: () => void
   hasMore: boolean
   loaderComp: ReactNode
-  loaderStyles: CSSProperties
+  loaderStyles?: CSSProperties
   wrapperElement?: 'div' | 'ul'
   children?: ReactNode
 }
