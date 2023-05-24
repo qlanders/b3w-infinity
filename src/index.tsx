@@ -4,6 +4,7 @@ import {
   useState,
   ReactNode,
   createElement,
+  CSSProperties,
 } from 'react';
 
 export interface IInfinity {
@@ -11,6 +12,7 @@ export interface IInfinity {
   fetchMore: () => void
   hasMore: boolean
   loaderComp: ReactNode
+  loaderStyles: CSSProperties
   wrapperElement?: 'div' | 'ul'
   children?: ReactNode
 }
@@ -21,6 +23,7 @@ const Infinity = ({
   fetchMore,
   hasMore,
   loaderComp,
+  loaderStyles,
   wrapperElement = 'div',
 }: IInfinity) => {
   const loader = useRef(fetchMore);
@@ -63,7 +66,7 @@ const Infinity = ({
     children,
     createElement(
       wrapperElement === 'div' ? 'div' : 'li',
-      { ref: setElement, style: { opacity: hasMore ? 1 : 0 } },
+      { ref: setElement, style: { ...loaderStyles, opacity: hasMore ? 1 : 0 } },
       loaderComp
     ),
   );
@@ -71,6 +74,7 @@ const Infinity = ({
 
 Infinity.defaultProps = {
   className: '',
+  loaderStyles: {},
   wrapperElement: 'div',
 };
 
