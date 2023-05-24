@@ -3,11 +3,12 @@ import React, {
 } from 'react';
 
 export interface IInfinity {
-  className?: string;
-  fetchMore: () => void;
-  hasMore: boolean;
-  loaderComp: ReactNode;
-  children?: ReactNode;
+  className?: string
+  fetchMore: () => void
+  hasMore: boolean
+  loaderComp: ReactNode
+  wrapperElement?: 'div' | 'ul'
+  children?: ReactNode
 }
 
 const Infinity = ({
@@ -16,7 +17,9 @@ const Infinity = ({
   fetchMore,
   hasMore,
   loaderComp,
+  wrapperElement = 'div',
 }: IInfinity) => {
+  const Wrapper = wrapperElement;
   const [element, setElement] = useState<HTMLDivElement | null>(null);
 
   const loader = useRef(fetchMore);
@@ -52,7 +55,7 @@ const Infinity = ({
   }, [element]);
 
   return (
-    <div className={className}>
+    <Wrapper className={className}>
       {children}
       <div
         ref={setElement}
@@ -60,12 +63,13 @@ const Infinity = ({
       >
         {loaderComp}
       </div>
-    </div>
+    </Wrapper>
   );
 };
 
 Infinity.defaultProps = {
   className: '',
+  wrapperElement: 'div',
 };
 
 export default Infinity;
